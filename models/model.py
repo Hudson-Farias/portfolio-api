@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 
 
 class Skill(BaseModel):
@@ -25,7 +25,7 @@ class Project(BaseModel):
     id: int
     title: str
     description: str
-    image_url: str
+    image_url: Optional[str] = None
     live_url: str
     repo_url: str
 

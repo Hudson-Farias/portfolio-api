@@ -24,7 +24,7 @@ def upgrade() -> None:
         sa.Column('id', sa.Integer(), primary_key=True, autoincrement=True),
         sa.Column('title', sa.String(255), nullable=False),
         sa.Column('description', sa.Text(), nullable=True),
-        sa.Column('image_url', sa.String(150), nullable=False),
+        sa.Column('image_url', sa.String(150), nullable=True),
         sa.Column('live_url', sa.String(150), nullable=False),
         sa.Column('repo_url', sa.String(150), nullable=False),
     )
