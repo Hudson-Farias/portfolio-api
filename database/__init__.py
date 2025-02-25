@@ -111,6 +111,8 @@ class Base(DeclarativeBase):
             if last_id: stmt = stmt.filter(getattr(self.__class__, self.__class__.primary_key) > last_id)
             elif page: stmt = stmt.offset(limit * (page - 1))
 
+            stmt = stmt.order_by(getattr(self.__class__, self.__class__.primary_key))
+
             result = await db.execute(stmt)
             data = result.scalars().all()
 
