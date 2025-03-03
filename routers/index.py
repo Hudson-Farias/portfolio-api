@@ -5,7 +5,7 @@ from database.skills import SkillsORM
 from database.experiences import ExperiencesORM
 from database.projects import ProjectsORM
 from database.social_networks import SocialNetworksORM
-from models.model import *
+from models import *
 
 router = APIRouter()
 
