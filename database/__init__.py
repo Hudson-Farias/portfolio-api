@@ -4,19 +4,11 @@ from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 from sqlalchemy.sql import func
 
-from dotenv import load_dotenv
-from os import getenv
 from math import ceil
+from env import POSTGRES_HOST, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_PORT, POSTGRES_DB
 
-load_dotenv()
 
-HOST = getenv('POSTGRES_HOST')
-USERNAME = getenv('POSTGRES_USER')
-PASSWORD = getenv('POSTGRES_PASSWORD')
-PORT = getenv('POSTGRES_PORT')
-DB = getenv('POSTGRES_DB')
-
-db_url = f'postgresql+asyncpg://{USERNAME}:{PASSWORD}@{HOST}:{PORT}/{DB}'
+db_url = f'postgresql+asyncpg://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}'
 
 engine = create_async_engine(db_url, pool_pre_ping = True, echo = True)
 Session = sessionmaker(engine, expire_on_commit = False, class_ = AsyncSession, future = True)

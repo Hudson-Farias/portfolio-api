@@ -5,18 +5,9 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from dotenv import load_dotenv
-from os import getenv
+from env import POSTGRES_HOST, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_PORT, POSTGRES_DB
 
-load_dotenv()
-
-HOST = getenv('POSTGRES_HOST')
-USERNAME = getenv('POSTGRES_USER')
-PASSWORD = getenv('POSTGRES_PASSWORD')
-PORT = getenv('POSTGRES_PORT')
-DB = getenv('POSTGRES_DB')
-
-db_url = f'postgresql://{USERNAME}:{PASSWORD}@{HOST}:{PORT}/{DB}'
+db_url = f'postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}'
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
