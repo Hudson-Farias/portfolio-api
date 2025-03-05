@@ -3,6 +3,9 @@ from os import  getenv
 
 load_dotenv()
 
+AUTH_APP_URL = getenv('AUTH_APP_URL')
+GITHUB_ACCESS_TOKEN = getenv('GITHUB_ACCESS_TOKEN')
+
 ENV_PATH = getenv('ENV_PATH')
 load_dotenv(ENV_PATH)
 
