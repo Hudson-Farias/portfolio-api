@@ -3,6 +3,7 @@ uvicorn
 pydantic
 httpx
 python-dotenv
+redis
 sqlalchemy
 alembic
 psycopg2-binary
