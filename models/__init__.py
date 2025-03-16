@@ -23,11 +23,11 @@ class Experience(BaseModel):
 
 class Project(BaseModel):
     id: int
-    title: str
-    description: str
+    name: str
+    description: Optional[str] = ''
     image_url: Optional[str] = None
-    live_url: str
-    repo_url: str
+    homepage: Optional[str] = None
+    html_url: Optional[str] = None
 
 
 class SocialNetwork(BaseModel):
