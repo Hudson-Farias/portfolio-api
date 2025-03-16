@@ -6,8 +6,9 @@ class ProjectsORM(Base):
     __tablename__ = 'projects'
 
     id = Column(Integer, primary_key = True, index = True)
-    title = Column(String(255), nullable = False)
-    description = Column(String(255), nullable = False)
+    git_id = Column(Integer, nullable = False)
+    title = Column(String(255), nullable = True)
+    description = Column(String(255), nullable = True)
     image_url = Column(String(150), nullable = True)
-    live_url = Column(String(150), nullable = False)
-    repo_url = Column(String(150), nullable = False)
+    live_url = Column(String(150), nullable = True)
+    repo_url = Column(String(150), nullable = True)

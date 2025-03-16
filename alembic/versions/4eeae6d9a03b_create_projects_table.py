@@ -22,6 +22,7 @@ def upgrade() -> None:
     op.create_table(
         'projects',
         sa.Column('id', sa.Integer(), primary_key=True, autoincrement=True),
+        sa.Column('git_id', sa.Integer()),
         sa.Column('title', sa.String(255), nullable=False),
         sa.Column('description', sa.Text(), nullable=True),
         sa.Column('image_url', sa.String(150), nullable=True),
