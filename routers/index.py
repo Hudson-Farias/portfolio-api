@@ -46,6 +46,7 @@ async def get_projects():
 
     for project in projects:
         project_dto = Project(**project)
+        project_dto.name = project_dto.name.replace('-', ' ').title()
         project_dto.html_url = None if project['private'] else project_dto.html_url
 
         if project['id'] in projects_ids: data.append(project_dto)
