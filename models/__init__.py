@@ -30,15 +30,7 @@ class Project(BaseModel):
     html_url: Optional[str] = None
 
 
-class SocialNetwork(BaseModel):
-    id: int
-    url: str
-    icon: str
-
-
-
 class ModelResponse(BaseModel):
     skills: List[Skills] = []
     experiences: List[Experience] = []
     projects: List[Project] = []
-    social_networks: List[SocialNetwork] = []

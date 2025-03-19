@@ -24,6 +24,8 @@ def upgrade() -> None:
         sa.Column('id', sa.Integer(), primary_key=True, autoincrement=True),
         sa.Column('url', sa.String(150), nullable=False),
         sa.Column('icon', sa.String(100), nullable=True),
+        sa.Column('show_header', sa.Boolean(), nullable=False, server_default='false'),
+        sa.Column('show_footer', sa.Boolean(), nullable=False, server_default='false')
     )
 
 

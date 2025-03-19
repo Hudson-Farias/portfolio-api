@@ -5,7 +5,6 @@ from database.skills_categories import SkillsCategoriesORM
 from database.skills import SkillsORM
 from database.experiences import ExperiencesORM
 from database.projects import ProjectsORM
-from database.social_networks import SocialNetworksORM
 
 from models import *
 
@@ -54,13 +53,14 @@ async def get_projects():
     return data
 
 
-async def get_social_networks():
-    async with SocialNetworksORM() as orm: social_networks = await orm.find_many()
-    return [SocialNetwork(**social_network.dict()) for social_network in social_networks]
-
 
 @router.get('/', status_code = 200, response_model = ModelResponse)
 async def get():
     data = ModelResponse()
-    data.skills, data.experiences, data.projects, data.social_networks = await gather(get_skills(), get_experiences(), get_projects(), get_social_networks())
+    data.skills, data.experiences, data.projects = await gather(
+        get_skills(),
+        get_experiences(),
+        get_projects(),
+    )
+
     return data
