@@ -6,7 +6,7 @@ from httpx import get
 from env import AUTH_APP_URL
 
 
-router = APIRouter(prefix = '/admin')
+router = APIRouter(prefix = '/admin', tags = ['admin'])
 
 
 async def partial_authenticated(request: Request, auth: Optional[HTTPAuthorizationCredentials] = Depends(HTTPBearer(auto_error = False))):
